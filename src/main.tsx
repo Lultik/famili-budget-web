@@ -1,14 +1,18 @@
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import App from "./App/App";
-import store from "./App/state/store.ts";
-
+import Router from "./Router";
+import store from "./store.ts";
+import theme from "./theme";
 // biome-ignore lint/style/noNonNullAssertion: <explanation>
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router />
+      </ThemeProvider>
     </Provider>
   </StrictMode>,
 );
