@@ -12,12 +12,10 @@
   "formatter": {
     "enabled": true,
     "indentStyle": "space",
-    "lineWidth": 120,
-    "quoteStyle": "single"
+    "lineWidth": 120
   },
   "organizeImports": {
-    "enabled": true,
-    "noUnusedImports": true
+    "enabled": true
   },
   "linter": {
     "enabled": true,
