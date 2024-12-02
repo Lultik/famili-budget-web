@@ -1,10 +1,20 @@
 import type { TypographyOptions } from "@mui/material/styles/createTypography";
 
+export function remToPx(value: string) {
+  return Math.round(Number.parseFloat(value) * 16);
+}
+
+export function pxToRem(value: number) {
+  return `${value / 16}rem`;
+}
+
 export const typography: TypographyOptions = {
   fontFamily: `'Roboto', 'Arial', sans-serif`,
   h1: {
-    fontSize: "2.5rem",
-    fontWeight: 700,
+    fontSize: pxToRem(18),
+    lineHeight: pxToRem(25.5),
+    fontWeight: 500,
+    letterSpacing: 0,
   },
   h2: {
     fontSize: "2rem",

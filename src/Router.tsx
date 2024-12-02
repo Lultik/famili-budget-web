@@ -1,34 +1,34 @@
-import { BrowserRouter, Route, Routes } from "react-router";
-import { ErrorPage } from "./pages/ErrorPage";
-import { Home } from "./pages/Home";
-import { Layout } from "./pages/Layout";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
+import { AddRecord, Advices, Budget, Dashboard, More } from "./features";
+import { ErrorPage, Layout } from "./pages";
+
+const isAuthenticated = true;
 
 const Router = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/dashboard">
-          <Route index element={<Home />} />
+        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <>Auth please</>} />
+
+        <Route path="dashboard" element={<Dashboard />} />
+
+        <Route path="budget" element={<Budget />}>
+          <Route index element={<Navigate to="personal" replace />} />
+
+          <Route index path="personal" element={<div>Personal</div>} />
+          <Route index path="household" element={<div>Household</div>} />
         </Route>
 
-        <Route path="/budget">
-          <Route index element={<>budget</>} />
-        </Route>
+        <Route path="add" element={<AddRecord />} />
 
-        <Route path="/add">
-          <Route index element={<>Add</>} />
-        </Route>
+        <Route path="advices" element={<Advices />} />
 
-        <Route path="/advices">
-          <Route index element={<>advices</>} />
-        </Route>
+        <Route path="more" element={<More />} />
 
-        <Route path="/more">
-          <Route index element={<>more</>} />
-        </Route>
-
-        {/*<Route path="/*" element={<ErrorPage />} />*/}
+        <Route path="*" element={<ErrorPage />} />
       </Route>
+
+      <Route path="login" element={<div>Login</div>} />
     </Routes>
   </BrowserRouter>
 );
