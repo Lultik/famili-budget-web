@@ -17,8 +17,9 @@ export const typography: TypographyOptions = {
     letterSpacing: 0,
   },
   h2: {
-    fontSize: "2rem",
-    fontWeight: 600,
+    fontSize: pxToRem(16),
+    fontWeight: 500,
+    lineHeight: pxToRem(22.5),
   },
   body1: {
     fontSize: "1rem",

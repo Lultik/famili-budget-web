@@ -1,23 +1,24 @@
 import type { Components } from "@mui/material/styles/components";
+import type theme from "../index.ts";
 
-export const MuiBottomNavigation: Components["MuiBottomNavigation"] = {
+export const MuiBottomNavigation: Components<typeof theme>["MuiBottomNavigation"] = {
   defaultProps: {
     showLabels: true,
   },
   styleOverrides: {
-    root: {
-      backgroundColor: "#002117",
+    root: ({ theme: { palette } }) => ({
+      backgroundColor: palette.background.nav,
       height: "100%",
-    },
+    }),
   },
 };
 
-export const MuiBottomNavigationAction: Components["MuiBottomNavigationAction"] = {
+export const MuiBottomNavigationAction: Components<typeof theme>["MuiBottomNavigationAction"] = {
   styleOverrides: {
-    root: {
+    root: ({ theme: { palette } }) => ({
       "&.Mui-selected": {
-        color: "#FFFFFF",
+        color: palette.common.white,
       },
-    },
+    }),
   },
 };

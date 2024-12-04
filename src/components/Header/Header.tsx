@@ -18,14 +18,22 @@ export const Header = ({ title, back = false }: HeaderProps) => {
     <Box
       title={title}
       sx={({ palette, spacing }) => ({
-        backgroundColor: palette.background.paper,
+        backgroundColor: palette.background.header,
         p: spacing(2.5, 5),
         height: "100%",
       })}
     >
       <Stack direction="row" spacing={4}>
         {back && <ArrowBackIcon onClick={navigateBack} />}
-        <Typography variant="h1">{title}</Typography>
+        <Typography
+          variant="h1"
+          fontWeight={600}
+          sx={({ palette }) => ({
+            color: palette.primary.darker,
+          })}
+        >
+          {title}
+        </Typography>
       </Stack>
     </Box>
   );
