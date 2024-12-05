@@ -1,6 +1,6 @@
-import { Tab, Tabs, type TabsProps } from "@mui/material";
+import { Box, Tab, Tabs, type TabsProps } from "@mui/material";
 import { useCallback, useState } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { Header } from "../../components";
 import { withAccess } from "../../hoc";
 import { Role } from "../../types";
@@ -19,25 +19,20 @@ const BudgetComponent = () => {
   );
 
   return (
-    <>
+    <Box
+      minHeight="100vh"
+      height="100%"
+      sx={({ palette }) => ({
+        background: palette.background.default,
+      })}
+    >
       <Header title="Budget" />
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        sx={({ palette }) => ({
-          backgroundColor: palette.background.paper,
-          width: "100%",
-
-          "& .MuiTabs-flexContainer": {
-            justifyContent: "space-evenly",
-          },
-        })}
-      >
+      <Tabs value={value} onChange={handleChange} variant="fullWidth">
         <Tab label="Personal" value="/budget/personal" />
         <Tab label="Household" value="/budget/household" />
       </Tabs>
       <Outlet />
-    </>
+    </Box>
   );
 };
 

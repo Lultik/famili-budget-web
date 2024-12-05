@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { AddRecord, Advices, Budget, Dashboard, More } from "./features";
+import { PersonalBudget } from "./features/Budget/Personal/Personal.tsx";
 import { ErrorPage, Layout } from "./pages";
 
 const isAuthenticated = true;
@@ -15,7 +16,7 @@ const Router = () => (
         <Route path="budget" element={<Budget />}>
           <Route index element={<Navigate to="personal" replace />} />
 
-          <Route index path="personal" element={<div>Personal</div>} />
+          <Route index path="personal" element={<PersonalBudget />} />
           <Route index path="household" element={<div>Household</div>} />
         </Route>
 
