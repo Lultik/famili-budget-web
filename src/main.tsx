@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import Router from "./Router";
 import store from "./store.ts";
 import theme from "./theme";
-// biome-ignore lint/style/noNonNullAssertion: <explanation>
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <Provider store={store}>

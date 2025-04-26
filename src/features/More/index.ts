@@ -1,1 +1,1 @@
-export * from "./More"
+export * from "./More";

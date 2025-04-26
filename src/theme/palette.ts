@@ -1,4 +1,4 @@
-import { type PaletteOptions, alpha } from "@mui/material/styles";
+import { PaletteOptions } from "@mui/material/styles";
 
 const GREY = {
   0: "#FFFFFF",
@@ -69,16 +69,5 @@ export const palette: PaletteOptions = {
     disabled: "#A3A4A6",
   },
   background: { paper: "#FFFFFF", default: "#F9FBF8", neutral: GREY[100], nav: "#002117", header: "#D4F4E4" },
-  action: {
-    active: GREY[600],
-    hover: alpha(GREY[500], 0.08),
-    selected: alpha(GREY[500], 0.16),
-    disabled: alpha(GREY[500], 0.8),
-    disabledBackground: alpha(GREY[500], 0.24),
-    focus: alpha(GREY[500], 0.24),
-    hoverOpacity: 0.08,
-    disabledOpacity: 0.48,
-  },
-
   grey: GREY,
 } as const;
