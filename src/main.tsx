@@ -1,4 +1,5 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
@@ -11,6 +12,7 @@ createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <SpeedInsights />
         <Router />
       </ThemeProvider>
     </Provider>
