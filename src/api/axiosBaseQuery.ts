@@ -7,10 +7,12 @@ export interface CustomErrorType {
   status: number;
   data?: { message: string };
 }
+const API_URL = import.meta.env.VITE_API_URL;
 
 const axiosBaseQuery = (axiosConfig: AxiosRequestConfig<unknown>): BaseQueryFn<AxiosRequestConfig> => {
   const axiosInstance = axiosCreate(
     {
+      baseURL: API_URL,
       paramsSerializer: {
         serialize: (params: unknown) => stringify(params, { arrayFormat: "comma", skipNulls: true }),
       },
