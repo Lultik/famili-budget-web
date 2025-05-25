@@ -1,15 +1,16 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { AddRecord, Advices, Budget, Dashboard, More } from "./features";
-import { PersonalBudget } from "./features/Budget/Personal/Personal.tsx";
+import { PersonalBudget } from "./features/Budget/Personal/Personal";
 import { ErrorPage, Layout } from "./pages";
+import { Auth } from "./features/Auth";
 
-const isAuthenticated = true;
+const isAuthenticated = false;
 
 const Router = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <>Auth please</>} />
+        <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <Auth />} />
 
         <Route path="dashboard" element={<Dashboard />} />
 
